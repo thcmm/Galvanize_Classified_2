@@ -2,7 +2,7 @@
   'use strict'
 
   angular.module('app')
-    .component('classifiedsList', {
+    .component('classifiedList', {
       require: {
         layout: '^app'
       },
@@ -21,9 +21,11 @@
       console.log("classified-list.component: onInit");
       $http.get('/classifieds')
         .then(response => vm.classifieds = response.data)
+        console.log("vm.classifieds response = ", vm.classifieds);
     }
 
     function createClassified() {
+      console.log("f:createClassified | vm.classified = ", vm.classified);
       $http.post('/classifieds', vm.classified)
         .then(response => {
           console.log("response", response.data);
