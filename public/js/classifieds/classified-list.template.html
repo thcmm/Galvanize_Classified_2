@@ -1,23 +1,39 @@
-<h1>Create Classified</h1>
-<form ng-submit="$ctrl.createClassified()">
-  <label for="name"></label>
-  <input ng-model="$ctrl.classified.name"
-  type="text"
-  name="name"
-  placeholder="Enter classified name">
+<h3>Create Classified</h3>
 
-  <label for="classified"></label>
-  <input ng-model="$ctrl.classified.classified"
-  type="text"
-  name="classified"
-  placeholder="Name the classified">
-  <button id="submitButton" type="button" name="button" ng-click="$ctrl.createClassified()">SUBMIT</button>
-</form>
-<hr>
-<h1>Classified List</h1>
-<main id="classifiedContainer" ng-repeat="classified in $ctrl.classifieds">
-  <div>
-    <h3>{{classified.name}}</h3>
-    <a ui-sref="classified-detail({id: classified.id})">{{classified.classified}}</a>
-  </div>
-</main>
+<div class="well well-lg" style="background: rgb(220,220,220);">
+    <form ng-submit="$ctrl.createClassified()">
+        <label for="title"></label>
+        <input ng-model="$ctrl.classified.title" type="text" name="title" placeholder="Title">
+
+        <label for="description"></label>
+        <input ng-model="$ctrl.classified.description" type="text" name="description" placeholder="Description">
+        <button id="submitButton" type="button" name="button" ng-click="$ctrl.createClassified()">SUBMIT</button>
+    </form>
+</div>
+
+<h3>Classified List</h3>
+<div class="well well-lg" style="background: rgb(220,220,220);">
+    <div class="row well well-sm" style="font-weight: 900;background: rgb(191,191,191);">
+        <div class="col-md-2">ID</div>
+        <div class="col-md-2">Title</a></div>
+        <div class="col-md-2">Description</div>
+        <div class="col-md-2">Price</div>
+        <div class="col-md-4">Image</div>
+    </div>
+<div class="container-fluid" id="classifiedContainer" ng-repeat="classified in $ctrl.classifieds">
+    <div class="row">
+        <div class="col-md-2"><span class="badge">{{classified.id}}</span></div>
+        <div class="col-md-2"><strong><a ui-sref="classified-detail({id: classified.id})">{{classified.title}}</strong></a></div>
+        <div class="col-md-2">{{classified.description}}</div>
+        <div class="col-md-2">{{classified.price}}</div>
+        <div class="col-md-4">{{classified.item_image}}</div>
+    </div>
+</div>
+</div>
+
+<!-- <table>
+  <tr ng-repeat="classified in $ctrl.classifieds">
+    <td><a ui-sref="classified-detail({id: classified.id})"></td>
+    <td>{{ classified.description }}</td>
+  </tr>
+</table> -->
