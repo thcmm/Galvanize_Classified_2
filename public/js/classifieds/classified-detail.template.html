@@ -1,0 +1,49 @@
+<!-- ///////////////////////////////////
+     // classified-detail.template.js //
+     // Galvanize Classified 2        //
+     /////////////////////////////////// -->
+<div class="page-header">
+    <h3>
+    {{$ctrl.classified.classified}}
+  </h3>
+</div>
+<!-- Update Classified -->
+<div class="row">
+    <div class="col-md-8">
+        <form name="form" novalidate ng-submit="$ctrl.updateClassified()">
+            <div>
+                <!-- ID -->
+                <label for="id">ID</label>
+                <input class="form-control" name="id" required ng-model="$ctrl.classified.id">
+            </div>
+            <br>
+            <div>
+                <!-- NAME -->
+                <label for>Title</label>
+                <input class="form-control" name="title" required ng-model="$ctrl.classified.title">
+            </div>
+            <br>
+            <div>
+                <!-- DESCRIPTION -->
+                <label>Description</label>
+                <input class="form-control" name="description" required ng-model="$ctrl.classified.description">
+            </div>
+            <div>
+                <!-- PRICE -->
+                <label>Price</label>
+                <input class="form-control" name="price" required ng-model="$ctrl.classified.price">
+            </div>
+            <div>
+                <!-- URL -->
+                <label>Price</label>
+                <input class="form-control" name="item_image" required ng-model="$ctrl.classified.item_image">
+            </div>
+            <br>
+            <!-- FORM SUBMIT -->
+            <div class="row">
+                <div class="col-md-4 form-group text-left"><button class="btn btn-success" type="submit">Update Classified</button></div>
+                  <div class="col-md-4 form-group text-center"><button class="btn btn-warning" type="submit">Cancle Update</button></div>
+                <div class="col-md-4 text-right"><button class="btn btn-danger" type="button" ng-click="$ctrl.deleteClassified()">Delete Classified</button></div>
+            </div>
+    </div>
+</div>

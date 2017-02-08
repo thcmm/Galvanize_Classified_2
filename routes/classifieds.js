@@ -1,4 +1,18 @@
 'use strict';
+////////////////////////////
+// classifieds.js         //
+// Galvanize Classified 2 //
+///////////////////////////
+
+/**
+KLART - Display all of the ads
+KLART - Post a new ad
+KLART - Edit existing ads
+KLART - Delete an ad
+KLART - Display Images
+TODO Filter ads (titles and descriptions) restring to only t & d
+KLART Sort ads based on posting date and price
+**/
 
 const express = require('express');
 const router = express.Router();
@@ -12,9 +26,8 @@ function showDbg() {
     }
 }
 
-
 router.get('/', (req, res, next) => {
-    knex.select('id', 'title', 'description', 'price', 'item_image').from('classifieds')
+    knex.select('id', 'title', 'description', 'price', 'item_image', 'created_at').from('classifieds')
         .then((classifieds) => {
             if (!classifieds) {
                 res.send("f(GET): Something cataclysmic may be afoot");
@@ -28,7 +41,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-    knex.select('id', 'title', 'description', 'price', 'item_image').from('classifieds')
+    knex.select('id', 'title', 'description', 'price', 'item_image', 'created_at').from('classifieds')
         .where('id', req.params.id)
         .first()
         .then((classifieds) => {
@@ -45,13 +58,14 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+    showDbg("f(POST):title ", req.body.title);
     knex('classifieds')
         .insert({
             title: req.body.title,
             description: req.body.description,
             price: req.body.price,
             item_image: req.body.item_image
-        }, ['id', 'title', 'description', 'price', 'item_image'])
+        }, ['id', 'title', 'description', 'price', 'item_image', 'created_at'])
         .then((response) => {
             if (response[0] == undefined) {
                 showDbg("**** f(POST): Error with POST request ****");
@@ -109,7 +123,6 @@ router.patch('/:id', (req, res, next) => {
             next(err);
         });
 });
-
 
 // Radera rutt
 router.delete('/:id', function(req, res, next) {
