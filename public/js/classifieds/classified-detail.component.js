@@ -1,5 +1,10 @@
+<!-- /////////////////////////////////////
+     // classified-detail.compontent.js //
+     // Galvanize Classified 2          //
+     ///////////////////////////////////// -->
+
 (function() {
-  'use strict'
+  'use strict';
 
   angular.module('app')
     .component('classifiedDetail', {
@@ -14,6 +19,7 @@
     vm.$onInit = onInit
     vm.updateClassified = updateClassified
     vm.deleteClassified = deleteClassified
+    vm.cancleUpdate     = cancleUpdate
 
     function onInit() {
       $http.get(`/classifieds/${$stateParams.id}`)
@@ -34,6 +40,10 @@
         .then(response => {
             $state.go('home')
         })
+    }
+    // TODO: Reperara Cancle funktionen
+    function cancleUpdate() {
+      $state.go('home')
     }
   }
 

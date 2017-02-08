@@ -4,6 +4,15 @@
 // Galvanize Classified 2 //
 ///////////////////////////
 
+/**
+OK - Display all of the ads
+Post a new ad
+Edit existing ads
+OK - Delete an ad
+Filter ads (titles and descriptions)
+Sort ads based on posting date and price
+**/
+
 const express = require('express');
 const router = express.Router();
 const knex = require('../knex');
@@ -48,6 +57,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+    showDbg("f(POST):title ", req.body.title);
     knex('classifieds')
         .insert({
             title: req.body.title,

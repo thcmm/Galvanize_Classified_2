@@ -1,3 +1,8 @@
+<!-- ////////////////////////////
+     // app.component.js       //
+     // Galvanize Classified 2 //
+     //////////////////////////// -->
+
 (function() {
   'use strict'
 

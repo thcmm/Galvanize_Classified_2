@@ -1,38 +1,50 @@
+<!-- ///////////////////////////////////
+     // classified-detail.template.js //
+     // Galvanize Classified 2        //
+     /////////////////////////////////// -->
 <div class="page-header">
-  <h1>
+    <h3>
     {{$ctrl.classified.classified}}
-  </h1>
+  </h3>
 </div>
-
+<!-- Update Classified -->
+<!-- ARGS: {title: "Ake", description: "Sven", price: "120", item_image: "www.meme.me"} -->
 <div class="row">
-  <div class="col-md-8">
-
-    <form name="form" novalidate ng-submit="$ctrl.updateClassified()">
-      <div>
-        <label for="id">ID</label>
-        <input class="form-control" name="id" required ng-model="$ctrl.classified.id">
-      </div>
-      <br>
-      <div>
-        <label for>Name</label>
-        <input class="form-control" name="name" required ng-model="$ctrl.classified.name"></textarea>
-      </div>
-      <br>
-      <div>
-        <label>Message</label>
-        <input class="form-control" name="classified" required ng-model="$ctrl.classified.classified">
-      </div>
-      <br>
-      <div class="form-group">
-        <button type="submit">
-          Update Classified
-        </button>
-      </div>
-    </form>
-    <br>
-    <button type="button" ng-click="$ctrl.deleteClassified()">
-      Delete Classified
-    </button>
-
-  </div>
+    <div class="col-md-8">
+        <form name="form" novalidate ng-submit="$ctrl.updateClassified()">
+            <div>
+                <!-- ID -->
+                <label for="id">ID</label>
+                <input class="form-control" name="id" required ng-model="$ctrl.classified.id">
+            </div>
+            <br>
+            <div>
+                <!-- NAME -->
+                <label for>Title</label>
+                <input class="form-control" name="title" required ng-model="$ctrl.classified.title">
+            </div>
+            <br>
+            <div>
+                <!-- DESCRIPTION -->
+                <label>Description</label>
+                <input class="form-control" name="description" required ng-model="$ctrl.classified.description">
+            </div>
+            <div>
+                <!-- PRICE -->
+                <label>Price</label>
+                <input class="form-control" name="price" required ng-model="$ctrl.classified.price">
+            </div>
+            <div>
+                <!-- URL -->
+                <label>Price</label>
+                <input class="form-control" name="item_image" required ng-model="$ctrl.classified.item_image">
+            </div>
+            <br>
+            <!-- FORM SUBMIT -->
+            <div class="row">
+                <div class="col-md-4 form-group text-left"><button type="submit">Update Classified</button></div>
+                  <div class="col-md-4 form-group text-center"><button type="submit">Cancle Update</button></div>
+                <div class="col-md-4 text-right"><button type="button" ng-click="$ctrl.deleteClassified()">Delete Classified</button></div>
+            </div>
+    </div>
 </div>
