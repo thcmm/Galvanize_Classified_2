@@ -6,11 +6,12 @@
 
 /**
 OK - Display all of the ads
-Post a new ad
-Edit existing ads
+OK - Post a new ad
+OK - Edit existing ads
 OK - Delete an ad
-Filter ads (titles and descriptions)
-Sort ads based on posting date and price
+TODO Display Images
+TODO Filter ads (titles and descriptions)
+TODO Sort ads based on posting date and price
 **/
 
 const express = require('express');
