@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    {{$ctrl.classified.classified}}
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+
+    <form name="form" novalidate ng-submit="$ctrl.updateClassified()">
+      <div>
+        <label for="id">ID</label>
+        <input class="form-control" name="id" required ng-model="$ctrl.classified.id">
+      </div>
+      <br>
+      <div>
+        <label for>Name</label>
+        <input class="form-control" name="name" required ng-model="$ctrl.classified.name"></textarea>
+      </div>
+      <br>
+      <div>
+        <label>Message</label>
+        <input class="form-control" name="classified" required ng-model="$ctrl.classified.classified">
+      </div>
+      <br>
+      <div class="form-group">
+        <button type="submit">
+          Update Classified
+        </button>
+      </div>
+    </form>
+    <br>
+    <button type="button" ng-click="$ctrl.deleteClassified()">
+      Delete Classified
+    </button>
+
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<h1>Create Classified</h1>
+<form ng-submit="$ctrl.createClassified()">
+  // Classified Name
+  <label for="name"></label>
+  <input ng-model="$ctrl.classified.name"
+  type="text"
+  name="name"
+  placeholder="Enter classified name">
+
+  <label for="classified"></label>
+  <input ng-model="$ctrl.classified.classified" type="text" name="classified" placeholder="Name the classified">
+  <button id="submitButton" type="button" name="button" ng-click="$ctrl.createClassified()">SUBMIT</button>
+</form>
+<hr>
+<h1>Classified List</h1>
+<main id="classifiedContainer" ng-repeat="classified in $ctrl.classifieds">
+  <div>
+    <h3>{{classified.name}}</h3>
+    <a ui-sref="classified-detail({id: classified.id})">{{classified.classified}}</a>
+  </div>
+</main>

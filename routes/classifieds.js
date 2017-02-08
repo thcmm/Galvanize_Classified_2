@@ -1,4 +1,8 @@
 'use strict';
+////////////////////////////
+// classifieds.js         //
+// Galvanize Classified 2 //
+///////////////////////////
 
 const express = require('express');
 const router = express.Router();
@@ -11,7 +15,6 @@ function showDbg() {
         console.log.apply(this, arguments);
     }
 }
-
 
 router.get('/', (req, res, next) => {
     knex.select('id', 'title', 'description', 'price', 'item_image').from('classifieds')
@@ -109,7 +112,6 @@ router.patch('/:id', (req, res, next) => {
             next(err);
         });
 });
-
 
 // Radera rutt
 router.delete('/:id', function(req, res, next) {
