@@ -16,8 +16,8 @@
         const vm = this;
         let showCreateClassified = false; // Dölj skapa annons block
         let sortClassifiedBy = 'id';
-        let sortingBy = 'Id';
-        let searchBy = '';
+        let sortingBy = 'Id'; // Sort 
+        let searchBy = ''; // Filter
 
         vm.$onInit = onInit;
         vm.createClassified = createClassified;

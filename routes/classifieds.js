@@ -9,9 +9,9 @@ KLART - Display all of the ads
 KLART - Post a new ad
 KLART - Edit existing ads
 KLART - Delete an ad
-TODO Display Images
-TODO Filter ads (titles and descriptions)
-TODO Sort ads based on posting date and price
+KLART - Display Images
+TODO Filter ads (titles and descriptions) restring to only t & d
+KLART Sort ads based on posting date and price
 **/
 
 const express = require('express');
@@ -65,7 +65,7 @@ router.post('/', (req, res, next) => {
             description: req.body.description,
             price: req.body.price,
             item_image: req.body.item_image
-        }, ['id', 'title', 'description', 'price', 'item_image'])
+        }, ['id', 'title', 'description', 'price', 'item_image', 'created_at'])
         .then((response) => {
             if (response[0] == undefined) {
                 showDbg("**** f(POST): Error with POST request ****");
