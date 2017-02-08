@@ -5,10 +5,10 @@
 ///////////////////////////
 
 /**
-OK - Display all of the ads
-OK - Post a new ad
-OK - Edit existing ads
-OK - Delete an ad
+KLART - Display all of the ads
+KLART - Post a new ad
+KLART - Edit existing ads
+KLART - Delete an ad
 TODO Display Images
 TODO Filter ads (titles and descriptions)
 TODO Sort ads based on posting date and price
@@ -27,7 +27,7 @@ function showDbg() {
 }
 
 router.get('/', (req, res, next) => {
-    knex.select('id', 'title', 'description', 'price', 'item_image').from('classifieds')
+    knex.select('id', 'title', 'description', 'price', 'item_image', 'created_at').from('classifieds')
         .then((classifieds) => {
             if (!classifieds) {
                 res.send("f(GET): Something cataclysmic may be afoot");
@@ -41,7 +41,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-    knex.select('id', 'title', 'description', 'price', 'item_image').from('classifieds')
+    knex.select('id', 'title', 'description', 'price', 'item_image', 'created_at').from('classifieds')
         .where('id', req.params.id)
         .first()
         .then((classifieds) => {

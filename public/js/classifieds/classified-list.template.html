@@ -1,44 +1,60 @@
 <div class="container-fluid">
-    <!-- Creat Classified -->
-    <h4 class="text-right">Create Classified</h4>
-    <div class="well well-lg" style="background: rgb(220,220,220);">
-        <form ng-submit="$ctrl.createClassified()">
-            <!-- Title  -->
-            <label for="title"></label>
-            <input ng-model="$ctrl.classified.title" type="text" name="title" placeholder="Title">
-            <!-- Description -->
-            <label for="description"></label>
-            <input ng-model="$ctrl.classified.description" type="text" name="description" placeholder="Description">
-            <!-- Price -->
-            <label for="price"></label>
-            <input ng-model="$ctrl.classified.price" type="text" name="price" placeholder="Price">
-            <!-- IMG URL -->
-            <label for="price"></label>
-            <input ng-model="$ctrl.classified.item_image" type="text" name="item_image" placeholder="Image URL">
-            <!-- Submit -->
-            <button id="submitButton" type="button" name="button" ng-click="$ctrl.createClassified()">SUBMIT</button>
-        </form>
-    </div>
-    <!-- List Classified -->
+    <!-- Listing Block -->
     <h4 class="text-right">Classified List</h4>
     <div class="well well-lg" style="background: rgb(220,220,220);">
+        <!-- Column Titles -->
         <div class="row well well-sm" style="font-weight: 900;background: rgb(191,191,191);">
-            <div class="col-md-2">ID</div>
+            <div class="col-md-1"><a ng-click="$ctrl.sortClassifieds('id')">ID</a></div>
+            <div class="col-md-1"><a ng-click="$ctrl.sortClassifieds('date')">Date</a></div>
             <div class="col-md-2">Title</a>
             </div>
             <div class="col-md-2">Description</div>
-            <div class="col-md-2">Price</div>
+            <div class="col-md-2"><a ng-click="$ctrl.sortClassifieds('price')">Price</a></div>
             <div class="col-md-4">Image</div>
         </div>
-        <div class="container-fluid" id="classifiedContainer" ng-repeat="classified in $ctrl.classifieds">
+        <!-- List Classifieds -->
+        <div class="container-fluid" id="classifiedContainer" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sortClassifiedBy | filter: $ctrl.searchBy">
             <div class="row">
-                <div class="col-md-2"><span class="badge">{{classified.id}}</span></div>
+                <div class="col-md-1"><span class="badge">{{classified.id}}</span></div>
+                <div class="col-md-1">{{ classified.created_at | date:'shortDate'}}</div>
                 <div class="col-md-2"><strong><a ui-sref="classified-detail({id: classified.id})">{{classified.title}}</strong></a>
                 </div>
                 <div class="col-md-2">{{classified.description}}</div>
                 <div class="col-md-2">{{classified.price}}</div>
                 <div class="col-md-4">{{classified.item_image}}</div>
             </div>
+        </div>
+    </div>
+    <!-- Show Creat Classified -->
+    <div class="row">
+        <div class="col-md-6">
+            <p><a class="btn btn-info" ng-click="$ctrl.toggleCreateClassifiedBlock()">Create New Advert</a></p>
+        </div>
+        <div class="col-md-2 text-right">Filter by:</div>
+        <div class="col-md-4 text-right" role="presentation" class="active">
+                <input type="search" ng-model="$ctrl.searchBy" class="form-control input-sm search-form" placeholder="Filter">
+        </div>
+    </div>
+    <!-- Creat Classified -->
+    <div class="row" ng-if="$ctrl.showCreateClassified == true">
+        <h4 class="text-left">Create Classified</h4>
+        <div class="well well-lg" style="background: rgb(220,220,220);">
+            <form ng-submit="$ctrl.createClassified()">
+                <!-- Title  -->
+                <label for="title"></label>
+                <input ng-model="$ctrl.classified.title" type="text" name="title" placeholder="Title">
+                <!-- Description -->
+                <label for="description"></label>
+                <input ng-model="$ctrl.classified.description" type="text" name="description" placeholder="Description">
+                <!-- Price -->
+                <label for="price"></label>
+                <input ng-model="$ctrl.classified.price" type="text" name="price" placeholder="Price">
+                <!-- IMG URL -->
+                <label for="price"></label>
+                <input ng-model="$ctrl.classified.item_image" type="text" name="item_image" placeholder="Image URL">
+                <!-- Submit -->
+                <button id="submitButton" type="button" name="button" ng-click="$ctrl.createClassified()">SUBMIT</button>
+            </form>
         </div>
     </div>
 </div>
