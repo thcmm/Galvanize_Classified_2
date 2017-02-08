@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-2">{{classified.description}}</div>
                 <div class="col-md-2">{{classified.price}}</div>
-                <div class="col-md-4"><img style="margin:2px" ng-src="{{classified.item_image}}" width="40" height="40" ></div>
+                <div class="col-md-4"><img style="margin:2px" ng-src="{{classified.item_image}}" width="40" height="40"></div>
             </div>
             <!-- {{classified.item_image}} -->
         </div>
@@ -34,8 +34,40 @@
         <div class="col-md-2 text-right">Filter by:</div>
         <!-- Filter Input -->
         <div class="col-md-4 text-right" role="presentation" class="active">
-                <input type="search" ng-model="$ctrl.searchBy" class="form-control input-sm search-form" placeholder="Filter">
+            <input type="search" ng-model="$ctrl.searchBy" class="form-control input-sm search-form" placeholder="Filter">
         </div>
+        <!-- START: TEST 1 Filtered Text Search -->
+        <div class="row">
+            <label>Search: <input ng-model="searchText"></label>
+            <table id="searchTextResults">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+                <tr ng-repeat="classified in $ctrl.classifieds | filter:searchText">
+                    <td>{{classified.title}}</td>
+                    <td>{{classified.description}}</td>
+                </tr>
+            </table>
+        </div>
+        <!-- END: TEST 1 Filtered Text Search -->
+        <!-- START: TEST 2 Filtered Text Search -->
+        <div class="row">
+            <!-- <label>Any: <input ng-model="search.$"></label> <br>
+            <label>Title only <input ng-model="search.title"></label><br>
+            <label>Description only <input ng-model="search.description"></label><br>
+            <table id="searchObjResults">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+                <tr ng-repeat="classifiedObj in classifieds | filter:search:strict">
+                    <td>{{classifiedObj.title}}</td>
+                    <td>{{classifiedObj.description}}</td>
+                </tr>
+            </table> -->
+        </div>
+        <!-- END: TEST 2 Filtered Text Search -->
     </div>
     <!-- Creat Classified -->
     <div class="row" ng-if="$ctrl.showCreateClassified == true">

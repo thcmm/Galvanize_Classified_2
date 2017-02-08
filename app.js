@@ -6,6 +6,7 @@
 
 const express = require('express');
 const path = require('path');
+require('dotenv').config(); // Heroku hublueblabla
 const app = express();
 var bodyParser = require('body-parser');
 
