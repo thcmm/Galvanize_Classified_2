@@ -159,28 +159,6 @@
         </div> -->
         <!-- END: TEST 2 Filtered Text Search -->
     </div>
-    <!-- Creat Classified -->
-    <div class="row" ng-if="$ctrl.showCreateClassified == true">
-        <h4 class="text-left">Create Classified</h4>
-        <div class="well well-sm" style="background: rgb(220,220,220);">
-            <form ng-submit="$ctrl.createClassified()">
-                <!-- Title  -->
-                <label for="title"></label>
-                <input ng-model="$ctrl.classified.title" type="text" name="title" placeholder="Title">
-                <!-- Description -->
-                <label for="description"></label>
-                <input ng-model="$ctrl.classified.description" type="text" name="description" placeholder="Description">
-                <!-- Price -->
-                <label for="price"></label>
-                <input ng-model="$ctrl.classified.price" type="text" name="price" placeholder="Price">
-                <!-- IMG URL -->
-                <label for="price"></label>
-                <input ng-model="$ctrl.classified.item_image" type="text" name="item_image" placeholder="Image URL">
-                <!-- Submit -->
-                <button class="btn btn-info" id="submitButton" type="button" name="button" ng-click="$ctrl.createClassified()">SUBMIT</button>
-            </form>
-        </div>
-    </div>
 </div>
 
 <!-- Grrrrrr!!!! tamai mai taam??? <table>
