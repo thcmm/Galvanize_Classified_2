@@ -13,7 +13,7 @@
           <p><a class="btn btn-default" ng-click="$ctrl.toggleView3()">Layout 3</a></p>
       </div>
     </div> <!-- END: BUTTON GROUP -->
-    <!-- START: TEST LOCATION -->
+    <!-- START: Filter & Create Advert -->
     <div class="row"  style="float: right">
         <div class="col-md-3 text-right">Filter by:</div>
         <!-- Filter Input -->
@@ -39,14 +39,14 @@
                 <label for="price"></label>
                 <input ng-model="$ctrl.classified.price" type="text" name="price" placeholder="Price">
                 <!-- IMG URL -->
-                <label for="price"></label>
-                <input ng-model="$ctrl.classified.item_image" type="text" name="item_image" placeholder="Image URL">
+                <label for="item_image"></label>
+                <input ng-model="$ctrl.classified.item_image" type="text" name="item_image" placeholder="Empty autofills RND url">
                 <!-- Submit -->
                 <button class="btn btn-info" id="submitButton" type="button" name="button" ng-click="$ctrl.createClassified()">SUBMIT</button>
             </form>
         </div>
     </div>
-    <!-- END: TEST LOCATION -->
+    <!-- END: Filter & Create Advert -->
     <div class="well well-lg" style="background: rgb(184,184,184);" ng-if="$ctrl.showView1 == true">
         <!-- Column Titles -->
         <div class="row well well-sm" style="font-weight: 900;background: rgb(160,160,160);">
