@@ -64,12 +64,18 @@
         <!-- List Classifieds -->
         <div class="container-fluid" id="classifiedContainer" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sortClassifiedBy | filter: $ctrl.searchBy">
             <div class="row">
+                <!-- ID -->
                 <div class="col-md-1"><span class="badge">{{classified.id}}</span></div>
+                <!-- Date -->
                 <div class="col-md-1">{{ classified.created_at | date:'shortDate'}}</div>
+                <!-- Title -->
                 <div class="col-md-2"><strong><a ui-sref="classified-detail({id: classified.id})">{{classified.title}}</strong></a>
                 </div>
+                <!-- Description -->
                 <div class="col-md-2">{{classified.description}}</div>
+                <!-- Price -->
                 <div class="col-md-2">${{classified.price}}</div>
+                <!-- ITEM_IMG -->
                 <div class="col-md-4"><img style="margin:2px" ng-src="{{classified.item_image}}" width="40" height="40"></div>
             </div>
         </div>

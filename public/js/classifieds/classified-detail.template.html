@@ -1,7 +1,7 @@
-<!-- ///////////////////////////////////
-     // classified-detail.template.js //
-     // Galvanize Classified 2        //
-     /////////////////////////////////// -->
+<!-- /////////////////////////////////////
+     // classified-detail.template.html //
+     // Galvanize Classified 2          //
+     //////////////////////////////////// -->
 <div class="container-fluid">
     <div>
         <div class="row">
@@ -47,8 +47,11 @@
                 <!-- FORM SUBMIT -->
 
                 <div class="row">
-                    <div class="col-md-4 col-sm-3 col-xs-4 text-left form-group"><button class="btn btn-success" type="submit">Update Classified</button></div>
-                    <div class="col-md-4 col-sm-3 col-xs-4 text-center form-group"><button class="btn btn-warning" type="submit">Cancle Update</button></div>
+                  <!-- Update Button -->
+                    <div class="col-md-4 col-sm-3 col-xs-4 text-left form-group"><button class="btn btn-success" type="button" ng-click="$ctrl.updateClassified()">Update Classified</button></div>
+                    <!-- Cancle Button -->
+                    <div class="col-md-4 col-sm-3 col-xs-4 text-center form-group"><button class="btn btn-warning" type="button" ng-click="$ctrl.cancleUpdate()">Cancle Update</button></div>
+                    <!-- Delete Button -->
                     <div class="col-md-4 col-sm-3 col-xs-4 text-right form-group"><button class="btn btn-danger" type="button" ng-click="$ctrl.deleteClassified()">Delete Classified</button></div>
                 </div>
 
