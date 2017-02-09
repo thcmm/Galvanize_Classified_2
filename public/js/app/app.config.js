@@ -32,5 +32,4 @@
        component: 'classifiedDetail',
      })
   }
-
 }());

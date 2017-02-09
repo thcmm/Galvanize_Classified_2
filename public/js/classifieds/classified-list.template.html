@@ -1,9 +1,55 @@
 <div class="container-fluid">
     <!-- Listing Block -->
     <h4 class="text-right">Classified List</h4>
-    <div class="well well-lg" style="background: rgb(220,220,220);">
+    <!-- START: BUTTON GROUP TODO Fix button stize-->
+    <div class="row btn-group btn-group-xs" role="group" aria-label="...">
+      <div class="col-md-3">
+          <p><a class="btn btn-default" ng-click="$ctrl.toggleView1()">Layout 1</a></p>
+      </div>
+      <div class="col-md-3">
+          <p><a class="btn btn-default" ng-click="$ctrl.toggleView2()">Layout 2</a></p>
+      </div>
+      <div class="col-md-3">
+          <p><a class="btn btn-default" ng-click="$ctrl.toggleView3()">Layout 3</a></p>
+      </div>
+    </div> <!-- END: BUTTON GROUP -->
+    <!-- START: TEST LOCATION -->
+    <div class="row"  style="float: right">
+        <div class="col-md-3 text-right">Filter by:</div>
+        <!-- Filter Input -->
+        <div class="col-md-3 text-right" role="presentation" class="active">
+            <input type="search" ng-model="$ctrl.searchBy" class="form-control input-sm search-form" placeholder="Filter">
+        </div>
+        <div class="col-md-6">
+            <p><a class="btn btn-primary" ng-click="$ctrl.toggleCreateClassifiedBlock()">Create New Advert</a></p>
+        </div>
+    </div>
+    <!-- Creat Classified -->
+    <div class="row" ng-if="$ctrl.showCreateClassified == true">
+        <h4 class="text-left">Create Classified</h4>
+        <div class="well well-sm" style="background: rgb(220,220,220);">
+            <form ng-submit="$ctrl.createClassified()">
+                <!-- Title  -->
+                <label for="title"></label>
+                <input ng-model="$ctrl.classified.title" type="text" name="title" placeholder="Title">
+                <!-- Description -->
+                <label for="description"></label>
+                <input ng-model="$ctrl.classified.description" type="text" name="description" placeholder="Description">
+                <!-- Price -->
+                <label for="price"></label>
+                <input ng-model="$ctrl.classified.price" type="text" name="price" placeholder="Price">
+                <!-- IMG URL -->
+                <label for="price"></label>
+                <input ng-model="$ctrl.classified.item_image" type="text" name="item_image" placeholder="Image URL">
+                <!-- Submit -->
+                <button class="btn btn-info" id="submitButton" type="button" name="button" ng-click="$ctrl.createClassified()">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+    <!-- END: TEST LOCATION -->
+    <div class="well well-lg" style="background: rgb(184,184,184);" ng-if="$ctrl.showView1 == true">
         <!-- Column Titles -->
-        <div class="row well well-sm" style="font-weight: 900;background: rgb(191,191,191);">
+        <div class="row well well-sm" style="font-weight: 900;background: rgb(160,160,160);">
             <div class="col-md-1"><a ng-click="$ctrl.sortClassifieds('id')">ID</a></div>
             <div class="col-md-1"><a ng-click="$ctrl.sortClassifieds('date')">Date</a></div>
             <div class="col-md-2">Title</a>
@@ -26,7 +72,7 @@
         </div>
     </div>
     <!-- START: TEST LIST -->
-    <div class="well well-lg" style="background: rgb(220,220,220);">
+    <div class="well well-lg" style="background: rgb(184,184,184);" ng-if="$ctrl.showView2 == true">
         <!-- Column Titles -->
         <div class="row well well-sm" style="font-weight: 900;background: rgb(191,191,191);">
             <div class="col-md-1"><a ng-click="$ctrl.sortClassifieds('id')">ID</a></div>
@@ -38,7 +84,7 @@
             <div class="col-md-4">Image</div>
         </div>
         <!-- List Classifieds -->
-        <div class="container-fluid list-group" id="classifiedContainer" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sortClassifiedBy | filter: $ctrl.searchBy">
+        <div class="container-fluid list-group" id="classifiedContainer" style="font-weight: 900;background: rgb(191,191,191);" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sortClassifiedBy | filter: $ctrl.searchBy">
           <div class="list-group-item">
             <div class="row">
                 <div class="col-md-1"><span class="badge">{{classified.id}}</span></div>
@@ -53,7 +99,7 @@
     </div>
     </div>
     <!-- START Media object -->
-    <div class="media list-group" id="classifiedContainer" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sortClassifiedBy | filter: $ctrl.searchBy">
+    <div class="container-fluid  media list-group" id="classifiedContainer" style="font-weight: 900;background: rgb(191,191,191);" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sortClassifiedBy | filter: $ctrl.searchBy" ng-if="$ctrl.showView3 == true">
     <div class="list-group-item">
       <div class="media-left">
         <a href="#">
@@ -78,14 +124,7 @@
     <!-- END: TEST LIST -->
     <!-- Show Creat Classified -->
     <div class="row">
-        <div class="col-md-6">
-            <p><a class="btn btn-primary" ng-click="$ctrl.toggleCreateClassifiedBlock()">Create New Advert</a></p>
-        </div>
-        <div class="col-md-2 text-right">Filter by:</div>
-        <!-- Filter Input -->
-        <div class="col-md-4 text-right" role="presentation" class="active">
-            <input type="search" ng-model="$ctrl.searchBy" class="form-control input-sm search-form" placeholder="Filter">
-        </div>
+
         <!-- START: TEST 1 Filtered Text Search -->
         <!-- <div class="row">
             <label>Search: <input ng-model="searchText"></label>
