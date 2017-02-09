@@ -1,7 +1,8 @@
 <div class="container-fluid">
     <!-- Listing Block -->
-    <h4 class="text-right">Classified List</h4>
-    <!-- START: BUTTON GROUP TODO Fix button stize-->
+    <h3 class="text-right">Classified List</h3>
+    <!-- START: BUTTON GROUP -->
+    <!-- TODO Fix button size -->
     <div class="row btn-group btn-group-xs" role="group" aria-label="...">
       <div class="col-md-3">
           <p><a class="btn btn-default" ng-click="$ctrl.toggleView1()">Layout 1</a></p>
@@ -12,16 +13,17 @@
       <div class="col-md-3">
           <p><a class="btn btn-default" ng-click="$ctrl.toggleView3()">Layout 3</a></p>
       </div>
-    </div> <!-- END: BUTTON GROUP -->
+    </div>
+    <!-- END: BUTTON GROUP -->
     <!-- START: Filter & Create Advert -->
     <div class="row"  style="float: right">
-        <div class="col-md-3 text-right">Filter by:</div>
+        <div class="col-md-2 text-right">Filter by:</div>
         <!-- Filter Input -->
-        <div class="col-md-3 text-right" role="presentation" class="active">
+        <div class="col-md-4 text-right" role="presentation" class="active">
             <input type="search" ng-model="$ctrl.searchBy" class="form-control input-sm search-form" placeholder="Filter">
         </div>
         <div class="col-md-6">
-            <p><a class="btn btn-primary" ng-click="$ctrl.toggleCreateClassifiedBlock()">Create New Advert</a></p>
+            <p><a class="btn btn-primary" style="margin-left: 6em;" ng-click="$ctrl.toggleCreateClassifiedBlock()">Create New Advert</a></p>
         </div>
     </div>
     <!-- Creat Classified -->
@@ -47,6 +49,7 @@
         </div>
     </div>
     <!-- END: Filter & Create Advert -->
+    <!-- ******* START: LAYOUT 1 ******* -->
     <div class="well well-lg" style="background: rgb(184,184,184);" ng-if="$ctrl.showView1 == true">
         <!-- Column Titles -->
         <div class="row well well-sm" style="font-weight: 900;background: rgb(160,160,160);">
@@ -71,7 +74,8 @@
             </div>
         </div>
     </div>
-    <!-- START: TEST LIST -->
+    <!-- ******* END: LAYOUT 1 ******* -->
+    <!-- ******* START: LAYOUT 2 ******* -->
     <div class="well well-lg" style="background: rgb(184,184,184);" ng-if="$ctrl.showView2 == true">
         <!-- Column Titles -->
         <div class="row well well-sm" style="font-weight: 900;background: rgb(191,191,191);">
@@ -98,7 +102,8 @@
         </div>
     </div>
     </div>
-    <!-- START Media object -->
+    <!-- ******* END: LAYOUT 2 ******* -->
+    <!-- ******* START: LAYOUT 3 ******* -->
     <div class="container-fluid  media list-group" id="classifiedContainer" style="font-weight: 900;background: rgb(191,191,191);" ng-repeat="classified in $ctrl.classifieds | orderBy: $ctrl.sortClassifiedBy | filter: $ctrl.searchBy" ng-if="$ctrl.showView3 == true">
     <div class="list-group-item">
       <div class="media-left">
@@ -120,9 +125,9 @@
       </div>
   </div>
  </div>
-    <!-- END Media object  -->
-    <!-- END: TEST LIST -->
-    <!-- Show Creat Classified -->
+<!-- ******* END: LAYOUT 3 ******* -->
+
+    <!-- ******* START: Unique Filter TESTING ******* -->
     <div class="row">
 
         <!-- START: TEST 1 Filtered Text Search -->
@@ -159,6 +164,7 @@
         </div> -->
         <!-- END: TEST 2 Filtered Text Search -->
     </div>
+    <!-- ******* END: Unique Filter TESTING ******* -->
 </div>
 
 <!-- Grrrrrr!!!! tamai mai taam??? <table>
