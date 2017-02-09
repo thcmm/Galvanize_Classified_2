@@ -43,7 +43,11 @@
     }
     // TODO: Reperara Cancle funktionen
     function cancleUpdate() {
-      $state.go('home')
+      $http.get(`/classifieds/${$stateParams.id}`)
+        .then(response => {
+          vm.classified = response.data
+          $state.go('home')
+        })
     }
   }
 
